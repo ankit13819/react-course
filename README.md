@@ -36,4 +36,19 @@
   whole algorithm is known as React Fiber(React 16).
   i.e- difference btw two objects.
 
-  
+# Monolithic Architecture
+- All the project in same like - API,UI,Database etc.
+
+# MicroServices Architecture
+- We have different project for each 
+- like-> BE, UI, Auth, DB, SM, Email
+- for example- Uber follow this depending upon the use cases- this is known as sepration of concerns 
+
+  - Question - how these services communicate to each other.
+  - BE talked to DB like this so talked all to each other.
+
+  -Exaple - different port for different services
+   1234-UI
+   1000-BE
+   3000-SMS
+   
