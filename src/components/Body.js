@@ -1,6 +1,7 @@
 import RestrauntCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 //we want to show top rated restuarant but maine bad logic lagaya aise nahi hoga below answer dekho
 
@@ -86,7 +87,13 @@ const Body = () => {
       </div>
       <div className="res-container">
         {filteredRestaurant.map((restaurant, index) => {
-          return <RestrauntCard key={index} resData={restaurant?.info} />;
+          return (
+            <Link
+              key={restaurant?.info?.id}
+              to={"/restaurants/" + restaurant?.info?.id}>
+              <RestrauntCard resData={restaurant?.info} />
+            </Link>
+          );
         })}
       </div>
     </div>
