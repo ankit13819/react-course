@@ -2,6 +2,7 @@ import RestrauntCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 //we want to show top rated restuarant but maine bad logic lagaya aise nahi hoga below answer dekho
 
@@ -30,6 +31,7 @@ const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]); //correct way
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
+  const onlineStatus = useOnlineStatus()
 
   useEffect(() => {
     fetchData();
@@ -49,6 +51,9 @@ const Body = () => {
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
   };
+
+  if (onlineStatus === false) return <h1>Oops I think you are offline please check your internet connection</h1>
+
 
   if (listOfRestaurants.length === 0) {
     return <Shimmer />;
